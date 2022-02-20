@@ -1,0 +1,144 @@
+:root {
+    --my-padding: 0.4rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    color: white;
+    display: grid;
+    gap: 0px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr 0.5fr 0.5fr 0.25fr;
+    grid-template-areas: 
+    "header nav nav nav"
+    "hero hero hero hero"
+    "main main image image"
+    "main main extra extra"
+    "footer footer footer footer"
+    ;
+
+    height: 100vh;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+nav {
+    background-color: rgb(105, 206, 206);
+    grid-area: nav;
+    align-items: center;
+    display: grid;
+    padding: var(--my-padding);
+}
+
+.nav-container {
+    align-items: center;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.hero {
+    align-items: center;
+    display: grid;
+    background-color: rgb(135, 235, 202);
+    grid-area: hero;
+    padding: var(--my-padding);
+}
+
+.image {
+    align-items: center;
+    display: grid;
+    background-color: rgb(138, 210, 243);
+    grid-area: image;
+    padding: var(--my-padding);
+}
+
+.extra {
+    align-items: center;
+    display: grid;
+    background-color: rgb(212, 133, 212);
+    grid-area: extra;
+    padding: var(--my-padding);
+}
+
+.header {
+    align-items: center;
+    display: grid;
+    background-color: rgb(169, 209, 209);
+    grid-area: header;
+    padding: var(--my-padding);
+}
+
+main {
+    align-items: center;
+    display: grid;
+    background-color: rgb(132, 132, 199);
+    grid-area: main;
+    padding: var(--my-padding);
+}
+
+footer {
+    align-items: center;
+    display: grid;
+    background-color: rgb(245, 198, 245);
+    grid-area: footer;
+    padding: var(--my-padding);
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .container {
+        grid-template-columns: 0.5fr 1fr 0.5fr;
+        grid-template-rows: 0.25fr 1fr 1.5fr 0.6fr 0.4fr;
+        grid-template-areas:
+            "header header header"
+            "hero hero hero"
+            "nav main main"
+            "nav footer footer"
+            "nav extra image"
+        ;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 480px){
+    .nav-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .sidebar {
+        display: block;
+    }
+
+    .content3 {
+        display: none;
+    }
+
+    .container {
+        gap: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.25fr 0.25fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr;
+        grid-template-areas: 
+        "header"
+        "nav"
+        "hero"
+        "main"
+        "footer"
+        "extra"
+        "image"
+        ;
+    }
+}
